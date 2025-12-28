@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>YELLOW PANEL</title>
+
+<style>
+body{
+  margin:0;
+  background:#0b0b0b;
+  font-family:sans-serif;
+  color:white;
+}
+
+.panel{
+  max-width:360px;
+  margin:40px auto;
+  padding:20px;
+  border-radius:16px;
+  border:2px solid #ffd400;
+  box-shadow:0 0 20px #ffd40055;
+  background:linear-gradient(180deg,#111,#000);
+}
+
+h2{
+  text-align:center;
+  color:#ffd400;
+  margin-bottom:25px;
+  text-shadow:0 0 10px #ffd400;
+}
+
+/* toggle row */
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:14px 0;
+}
+
+/* switch */
+.switch{
+  position:relative;
+  width:50px;
+  height:26px;
+}
+
+.switch input{
+  display:none;
+}
+
+.slider{
+  position:absolute;
+  inset:0;
+  background:#555;
+  border-radius:20px;
+  transition:.3s;
+}
+
+.slider:before{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:22px;
+  left:2px;
+  top:2px;
+  background:white;
+  border-radius:50%;
+  transition:.3s;
+}
+
+.switch input:checked + .slider{
+  background:#ffd400;
+  box-shadow:0 0 10px #ffd400;
+}
+
+.switch input:checked + .slider:before{
+  transform:translateX(24px);
+}
+
+/* slider bar */
+input[type=range]{
+  width:100%;
+  margin-top:8px;
+}
+.value{
+  color:#ffd400;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+  <h2>PEDPRO PANEL</h2>
+
+  <div class="row">
+    <span>ดูดหัว 98%</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="row">
+    <span>ช่วยลาก</span>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="row">
+    <span>กระสุนตรง</span>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="row">
+    <span>ความไวการปัดจอ <span class="value" id="v">100</span></span>
+  </div>
+  <input type="range" min="0" max="200" value="100"
+         oninput="v.innerText=this.value">
+
+</div>
+
+</body>
+</html>
